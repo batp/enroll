@@ -1,14 +1,87 @@
 <ion-header>
   <ion-toolbar>
     <ion-title>
-      Ionic Blank
+      DAKATech enroll
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-  <div class="ion-padding">
-    The world is your oyster.
-    <p>If you get lost, the <a target="_blank" rel="noopener" href="https://ionicframework.com/docs/">docs</a> will be your guide.</p>
-  </div>
+  <ion-grid>
+    <ion-row>
+      <ion-col width-100 style="text-align: center">
+        <ion-button color="medium" (click)="scanClicked()">SCAN</ion-button>
+      </ion-col>
+    </ion-row>
+    <ion-row align-items-center>
+      <ion-col>
+        <ion-label>Identifiant:</ion-label>
+        <ion-input></ion-input>
+      </ion-col>
+    </ion-row>
+    <ion-row align-items-center>
+      <ion-col>
+        <ion-label>Désignation:</ion-label>
+        <ion-input></ion-input>
+      </ion-col>
+    </ion-row>
+    <ion-row align-items-center>
+      <ion-col>
+        <ion-label>Marque:</ion-label>
+        <ion-input></ion-input>
+      </ion-col>
+    </ion-row>
+    <ion-row align-items-center>
+      <ion-col>
+        <ion-label>Numéro de série:</ion-label>
+        <ion-input></ion-input>
+      </ion-col>
+    </ion-row>
+    <ion-row align-items-center>
+      <ion-col>
+        Placeholder for periodicities
+      </ion-col>
+    </ion-row>
+    <ion-row align-items-center>
+      <ion-col>
+        <ion-label>Secteur:</ion-label>
+        <ion-input></ion-input>
+      </ion-col>
+    </ion-row>
+    <ion-row align-items-center>
+      <ion-col>
+        <ion-label>Zone:</ion-label>
+        <ion-input></ion-input>
+      </ion-col>
+    </ion-row>
+    <ion-row align-items-center>
+      <ion-col>
+        <ion-label>Longueur:</ion-label>
+        <ion-input></ion-input>
+      </ion-col>
+    </ion-row>
+    <ion-row align-items-center>
+      <ion-col>
+        <ion-label>Nombre de brins:</ion-label>
+        <ion-input></ion-input>
+      </ion-col>
+    </ion-row>
+    <ion-row align-items-center>
+      <ion-col>
+        <ion-label>Charge utile:</ion-label>
+        <ion-input></ion-input>
+      </ion-col>
+    </ion-row>
+    <ion-row align-items-center>
+      <ion-col>
+        <ion-label>Commentaire:</ion-label>
+        <ion-textarea></ion-textarea>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col width-100 style="text-align: center">
+        <ion-button color="medium">Enregistrer</ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 </ion-content>
