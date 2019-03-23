@@ -1,4 +1,8 @@
-export class TagCreate {
+export class Tag {
+    constructor() {
+        this.chip_id = "";
+    }
+
     chip_id: string;
     label: string;
     brand: any;
@@ -12,4 +16,4 @@ export class TagCreate {
     cmu_kg: number;
     lenght: number;
     status: number;
-} 
+}
