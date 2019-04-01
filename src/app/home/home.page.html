@@ -13,76 +13,79 @@
         <ion-button color="medium" (click)="scanClicked()">SCAN</ion-button>
       </ion-col>
     </ion-row>
-
-    <ion-row align-items-center *ngIf="tag.chip_id.lenght > 1">
+    <ion-row align-items-center *ngIf="tag.chip_id">
       <ion-col>
         <ion-label>Identifiant:</ion-label>
-        <ion-input [(ngModel)="selectedDevice.id" disabled></ion-input>
+        <ion-input [(ngModel)]="tag.chip_id" disabled></ion-input>
       </ion-col>
     </ion-row>
-    <ion-row align-items-center *ngIf="tag.chip_id.lenght > 1">
+    <ion-row align-items-center *ngIf="tag.chip_id">
       <ion-col>
         <ion-label>Désignation:</ion-label>
-        <ion-input [(ngModel)="tag.label"></ion-input>
+        <ion-input [(ngModel)]="tag.label"></ion-input>
       </ion-col>
     </ion-row>
-    <ion-row align-items-center *ngIf="tag.chip_id.lenght > 1">
+    <ion-row align-items-center *ngIf="tag.chip_id">
       <ion-col>
         <ion-label>Marque:</ion-label>
-        <ion-input [(ngModel)="tag.brand"></ion-input>
+        <ion-input [(ngModel)]="tag.brand"></ion-input>
       </ion-col>
     </ion-row>
-    <ion-row align-items-center *ngIf="tag.chip_id.lenght > 1">
+    <ion-row align-items-center *ngIf="tag.chip_id">
       <ion-col>
         <ion-label>Numéro de série:</ion-label>
-        <ion-input [(ngModel)="tag.serial_num"></ion-input>
+        <ion-input [(ngModel)]="tag.serial_num"></ion-input>
       </ion-col>
     </ion-row>
-    <ion-row align-items-center *ngIf="tag.chip_id.lenght > 1">
+    <ion-row align-items-center *ngIf="tag.chip_id">
       <ion-col>
         Placeholder for periodicities
       </ion-col>
     </ion-row>
-    <ion-row align-items-center *ngIf="tag.chip_id.lenght > 1">
+    <ion-row align-items-center *ngIf="tag.chip_id">
       <ion-col>
         <ion-label>Secteur:</ion-label>
-        <ion-input [(ngModel)="tag.sector"></ion-input>
+        <ion-input [(ngModel)]="tag.sector"></ion-input>
       </ion-col>
     </ion-row>
-    <ion-row align-items-center *ngIf="tag.chip_id.lenght > 1">
+    <ion-row align-items-center *ngIf="tag.chip_id">
       <ion-col>
         <ion-label>Zone:</ion-label>
-        <ion-input [(ngModel)="tag.zone"></ion-input>
+        <ion-input [(ngModel)]="tag.zone"></ion-input>
       </ion-col>
     </ion-row>
-    <ion-row align-items-center *ngIf="tag.chip_id.lenght > 1">
-      <ion-col>
-        <ion-label>Longueur:</ion-label>
-        <ion-input [(ngModel)="tag.lenght"></ion-input>
-      </ion-col>
-    </ion-row>
-    <ion-row align-items-center *ngIf="tag.chip_id.lenght > 1">
+    <ion-row align-items-center *ngIf="tag.chip_id">
       <ion-col>
         <ion-label>Nombre de brins:</ion-label>
-        <ion-input [(ngModel)="tag.lenght"></ion-input>
+        <ion-input [(ngModel)]="tag.part_number"></ion-input>
       </ion-col>
     </ion-row>
-    <ion-row align-items-center *ngIf="tag.chip_id.lenght > 1">
+    <ion-row align-items-center *ngIf="tag.chip_id">
       <ion-col>
         <ion-label>Charge utile:</ion-label>
-        <ion-input [(ngModel)="tag.cmu_kg"></ion-input>
+        <ion-input [(ngModel)]="tag.cmu_kg"></ion-input>
       </ion-col>
     </ion-row>
-    <ion-row align-items-center *ngIf="tag.chip_id.lenght > 1">
+    <ion-row align-items-center *ngIf="tag.chip_id">
+      <ion-col>
+        <ion-label>Longueur:</ion-label>
+        <ion-input [(ngModel)]="tag.length"></ion-input>
+      </ion-col>
+    </ion-row>
+    <ion-row align-items-center *ngIf="tag.chip_id">
       <ion-col>
         <ion-label>Commentaire:</ion-label>
-        <ion-textarea [(ngModel)="tag.comment"></ion-textarea>
+        <ion-textarea [(ngModel)]="tag.comment"></ion-textarea>
       </ion-col>
     </ion-row>
-    <ion-row *ngIf="tag.chip_id.lenght > 1">
+    <ion-row *ngIf="tag.chip_id">
       <ion-col width-100 style="text-align: center">
         <ion-button color="medium" (click)="saveClicked()">Enregistrer</ion-button>
       </ion-col>
+      <ion-col width-100 style="text-align: center">
+        <ion-button color="medium" (click)="cancelClicked()">Annuler</ion-button>
+      </ion-col>
     </ion-row>
+
   </ion-grid>
 </ion-content>

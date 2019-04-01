@@ -5,8 +5,7 @@ import { BLE } from '@ionic-native/ble/ngx';
 
 import { Mutex, MutexInterface } from 'async-mutex';
 
-import { RestService } from 'src/app/rest-service.service'
-import { Tag } from 'src/models/tag.model';
+import { RestService, Tag } from 'src/app/rest.service'
 import { BLEDevice } from 'src/models/bledevice.model';
 
 @Component({
@@ -41,6 +40,7 @@ export class HomePage {
     this.scanForDevices();
     setTimeout(async () => {
       this.bleService.stopScan();
+      this.tag.chip_id = (this.devices.length > 0) ? this.devices[0].id : "";
       loading.dismiss();
       if (this.tag.chip_id === "") {
         const alert = await this.alertController.create({
@@ -140,8 +140,7 @@ export class HomePage {
   }
 
   private updateEquipments() {
-    this.devices = this.devices.sort((a: BLEDevice, b: BLEDevice) => a.rssi - b.rssi);
-    this.tag.chip_id = this.devices[0].id;
+    this.devices = this.devices.sort((a: BLEDevice, b: BLEDevice) => b.rssi - a.rssi);
   }
 
 }
