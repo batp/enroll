@@ -45,7 +45,7 @@ export class HomePage {
       if (this.tag.chip_id === "") {
         const alert = await this.alertController.create({
           header: 'Erreur',
-          message: 'Aucune balise détectée',
+          message: 'Aucune nouvelle balise détectée',
           buttons: ['OK'],
         });
         alert.present();
@@ -82,6 +82,10 @@ export class HomePage {
         failToast.present();
         this.clearForm();
       })
+  }
+
+  public cancelClicked() {
+    this.clearForm();
   }
 
   private async scanForDevices() {
