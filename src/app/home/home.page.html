@@ -39,7 +39,22 @@
     </ion-row>
     <ion-row align-items-center *ngIf="tag.chip_id">
       <ion-col>
-        Placeholder for periodicities
+        <ion-label>Jour de controle:</ion-label>
+        <ion-select [(ngModel)]="tag.check_day_id" okText="OK" cancelText="Annuler">
+          <ion-select-option [value]="1">Lundi</ion-select-option>
+          <ion-select-option [value]="2">Mardi</ion-select-option>
+          <ion-select-option [value]="3">Mercredi</ion-select-option>
+          <ion-select-option [value]="4">Jeudi</ion-select-option>
+          <ion-select-option [value]="5">Vendredi</ion-select-option>
+          <ion-select-option [value]="6">Samedi</ion-select-option>
+          <ion-select-option [value]="0">Dimanche</ion-select-option>
+        </ion-select>
+      </ion-col>
+    </ion-row>
+    <ion-row align-items-center *ngIf="tag.chip_id">
+      <ion-col>
+        <ion-label>Périodicité (mois):</ion-label>
+        <ion-input [(ngModel)]="tag.month_periodicity" type="number"></ion-input>
       </ion-col>
     </ion-row>
     <ion-row align-items-center *ngIf="tag.chip_id">

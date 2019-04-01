@@ -4,6 +4,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 export class Tag {
   constructor() {
     this.chip_id = "";
+    this.check_day_id = 1;
   }
 
   id: number;
