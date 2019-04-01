@@ -1,14 +1,106 @@
 <ion-header>
   <ion-toolbar>
     <ion-title>
-      Ionic Blank
+      DAKATech enroll
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-  <div class="ion-padding">
-    The world is your oyster.
-    <p>If you get lost, the <a target="_blank" rel="noopener" href="https://ionicframework.com/docs/">docs</a> will be your guide.</p>
-  </div>
+  <ion-grid>
+    <ion-row>
+      <ion-col width-100 style="text-align: center">
+        <ion-button color="medium" (click)="scanClicked()">SCAN</ion-button>
+      </ion-col>
+    </ion-row>
+    <ion-row align-items-center *ngIf="tag.chip_id">
+      <ion-col>
+        <ion-label>Identifiant:</ion-label>
+        <ion-input [(ngModel)]="tag.chip_id" disabled></ion-input>
+      </ion-col>
+    </ion-row>
+    <ion-row align-items-center *ngIf="tag.chip_id">
+      <ion-col>
+        <ion-label>Désignation:</ion-label>
+        <ion-input [(ngModel)]="tag.label"></ion-input>
+      </ion-col>
+    </ion-row>
+    <ion-row align-items-center *ngIf="tag.chip_id">
+      <ion-col>
+        <ion-label>Marque:</ion-label>
+        <ion-input [(ngModel)]="tag.brand"></ion-input>
+      </ion-col>
+    </ion-row>
+    <ion-row align-items-center *ngIf="tag.chip_id">
+      <ion-col>
+        <ion-label>Numéro de série:</ion-label>
+        <ion-input [(ngModel)]="tag.serial_num"></ion-input>
+      </ion-col>
+    </ion-row>
+    <ion-row align-items-center *ngIf="tag.chip_id">
+      <ion-col>
+        <ion-label>Jour de controle:</ion-label>
+        <ion-select [(ngModel)]="tag.check_day_id" okText="OK" cancelText="Annuler">
+          <ion-select-option [value]="1">Lundi</ion-select-option>
+          <ion-select-option [value]="2">Mardi</ion-select-option>
+          <ion-select-option [value]="3">Mercredi</ion-select-option>
+          <ion-select-option [value]="4">Jeudi</ion-select-option>
+          <ion-select-option [value]="5">Vendredi</ion-select-option>
+          <ion-select-option [value]="6">Samedi</ion-select-option>
+          <ion-select-option [value]="0">Dimanche</ion-select-option>
+        </ion-select>
+      </ion-col>
+    </ion-row>
+    <ion-row align-items-center *ngIf="tag.chip_id">
+      <ion-col>
+        <ion-label>Périodicité (mois):</ion-label>
+        <ion-input [(ngModel)]="tag.month_periodicity" type="number"></ion-input>
+      </ion-col>
+    </ion-row>
+    <ion-row align-items-center *ngIf="tag.chip_id">
+      <ion-col>
+        <ion-label>Secteur:</ion-label>
+        <ion-input [(ngModel)]="tag.sector"></ion-input>
+      </ion-col>
+    </ion-row>
+    <ion-row align-items-center *ngIf="tag.chip_id">
+      <ion-col>
+        <ion-label>Zone:</ion-label>
+        <ion-input [(ngModel)]="tag.zone"></ion-input>
+      </ion-col>
+    </ion-row>
+    <ion-row align-items-center *ngIf="tag.chip_id">
+      <ion-col>
+        <ion-label>Nombre de brins:</ion-label>
+        <ion-input [(ngModel)]="tag.part_number"></ion-input>
+      </ion-col>
+    </ion-row>
+    <ion-row align-items-center *ngIf="tag.chip_id">
+      <ion-col>
+        <ion-label>Charge utile:</ion-label>
+        <ion-input [(ngModel)]="tag.cmu_kg"></ion-input>
+      </ion-col>
+    </ion-row>
+    <ion-row align-items-center *ngIf="tag.chip_id">
+      <ion-col>
+        <ion-label>Longueur:</ion-label>
+        <ion-input [(ngModel)]="tag.length"></ion-input>
+      </ion-col>
+    </ion-row>
+    <ion-row align-items-center *ngIf="tag.chip_id">
+      <ion-col>
+        <ion-label>Commentaire:</ion-label>
+        <ion-textarea [(ngModel)]="tag.comment"></ion-textarea>
+      </ion-col>
+    </ion-row>
+    <ion-row *ngIf="tag.chip_id">
+      <ion-col width-100 style="text-align: center">
+        <ion-button color="medium" (click)="saveClicked()">Enregistrer</ion-button>
+      </ion-col>
+      <ion-col width-100 style="text-align: center">
+        <ion-button color="medium" (click)="cancelClicked()">Annuler</ion-button>
+      </ion-col>
+    </ion-row>
+
+  </ion-grid>
 </ion-content>
