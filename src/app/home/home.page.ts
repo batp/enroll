@@ -20,6 +20,7 @@ export class HomePage {
   private mutex: Mutex;
   private devices: BLEDevice[] = [];
 
+
   constructor(
     private alertController: AlertController,
     private loadingController: LoadingController,
@@ -29,6 +30,15 @@ export class HomePage {
   ) {
     this.mutex = new Mutex();
     this.tag = new Tag();
+    this.tag.label = "";
+    this.tag.last_certification = "";
+    this.tag.month_periodicity = -1;
+    this.tag.brand = "";
+    this.tag.serial_num = "";
+    this.tag.cmu_kg = -1;
+    this.tag.length = -1;
+    this.tag.human_id = "";
+    this.tag.famille = "";
   }
 
   public async scanClicked() {
@@ -45,7 +55,7 @@ export class HomePage {
       if (this.tag.chip_id === "") {
         const alert = await this.alertController.create({
           header: 'Erreur',
-          message: 'Aucune nouvelle balise détectée',
+          message: 'Aucune nouvelle balise détectée (vérifiez que le bluetooth est activé)',
           buttons: ['OK'],
         });
         alert.present();
@@ -54,6 +64,98 @@ export class HomePage {
   }
 
   public async saveClicked() {
+
+    if ( this.tag.human_id === "" || this.tag.human_id == null ) {
+      const alert = await this.alertController.create({
+        header: 'Erreur',
+        message: "L'identification de la balise est obligatoire",
+        buttons: ['OK'],
+      });
+      alert.present();
+      return;
+    }
+
+    if ( this.tag.serial_num === "" || this.tag.serial_num == null ) {
+      const alert = await this.alertController.create({
+        header: 'Erreur',
+        message: "Le numéro de série de l'équipement est obligatoire",
+        buttons: ['OK'],
+      });
+      alert.present();
+      return;
+    }
+
+    if ( this.tag.brand === "" || this.tag.brand == null ) {
+      const alert = await this.alertController.create({
+        header: 'Erreur',
+        message: "La marque de l'équipement est obligatoire",
+        buttons: ['OK'],
+      });
+      alert.present();
+      return;
+    }
+    if ( this.tag.month_periodicity === -1 || this.tag.month_periodicity == null ) {
+      const alert = await this.alertController.create({
+        header: 'Erreur',
+        message: "La fréquence de contrôle de l'équipement est obligatoire",
+        buttons: ['OK'],
+      });
+      alert.present();
+      return;
+    }
+
+    if ( this.tag.label === "" || this.tag.label == null ) {
+      const alert = await this.alertController.create({
+        header: 'Erreur',
+        message: "Une désignation de l'équipement est obligatoire",
+        buttons: ['OK'],
+      });
+      alert.present();
+      return;
+    }
+
+    if ( this.tag.last_certification === "" || this.tag.last_certification == null ) {
+      const alert = await this.alertController.create({
+        header: 'Erreur',
+        message: 'La date de derniere certification est obligatoire',
+        buttons: ['OK'],
+      });
+      alert.present();
+
+      return;
+    }
+
+
+    if ( this.tag.famille === "" || this.tag.famille == null ) {
+      const alert = await this.alertController.create({
+        header: 'Erreur',
+        message: "La famille de l'équipement est obligatoire",
+        buttons: ['OK'],
+      });
+      alert.present();
+      return;
+    }
+
+    if ( this.tag.cmu_kg === -1 || this.tag.cmu_kg == null ) {
+      const alert = await this.alertController.create({
+        header: 'Erreur',
+        message: "La charge utile maximale de l'équipement est obligatoire",
+        buttons: ['OK'],
+      });
+      alert.present();
+      return;
+    }
+
+    if ( this.tag.length === -1 || this.tag.length == null ) {
+      const alert = await this.alertController.create({
+        header: 'Erreur',
+        message: "La longueur de l'équipement est obligatoire",
+        buttons: ['OK'],
+      });
+      alert.present();
+      return;
+    }
+
     const toast = await this.toastController.create({
       message: 'Envoi en cours',
       position: 'top',

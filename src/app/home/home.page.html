@@ -1,7 +1,7 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>
-      DAKATech enroll
+  <ion-toolbar class="new-background-color">
+    <ion-title >
+      DAKATech Enroll
     </ion-title>
   </ion-toolbar>
 </ion-header>
@@ -13,33 +13,38 @@
         <ion-button color="medium" (click)="scanClicked()">SCAN</ion-button>
       </ion-col>
     </ion-row>
-    <ion-row align-items-center *ngIf="tag.chip_id">
-      <ion-col>
+  </ion-grid>
+
+  <ion-list>
+    <ion-item align-items-center *ngIf="tag.chip_id">
+      <!-- <ion-col> -->
         <ion-label>Identifiant:</ion-label>
         <ion-input [(ngModel)]="tag.chip_id" disabled></ion-input>
-      </ion-col>
-    </ion-row>
-    <ion-row align-items-center *ngIf="tag.chip_id">
-      <ion-col>
+      <!-- </ion-col> -->
+    </ion-item>
+    <ion-item align-items-center *ngIf="tag.chip_id">
+        <ion-label>Identification de la balise:</ion-label>
+        <ion-input required [(ngModel)]="tag.human_id" ></ion-input>
+    </ion-item>
+    <ion-item align-items-center *ngIf="tag.chip_id">
+      <!-- <ion-col> -->
         <ion-label>Désignation:</ion-label>
-        <ion-input [(ngModel)]="tag.label"></ion-input>
-      </ion-col>
-    </ion-row>
-    <ion-row align-items-center *ngIf="tag.chip_id">
-      <ion-col>
-        <ion-label>Marque:</ion-label>
-        <ion-input [(ngModel)]="tag.brand"></ion-input>
-      </ion-col>
-    </ion-row>
-    <ion-row align-items-center *ngIf="tag.chip_id">
-      <ion-col>
+        <ion-input required [(ngModel)]="tag.label" ></ion-input>
+      <!-- </ion-col> -->
+    </ion-item>
+    <ion-item align-items-center *ngIf="tag.chip_id">
+      <!-- <ion-col> -->
+        <ion-label>Constructeur:</ion-label>
+        <ion-input required [(ngModel)]="tag.brand"></ion-input>
+      <!-- </ion-col> -->
+    </ion-item>
+    <ion-item align-items-center *ngIf="tag.chip_id">
         <ion-label>Numéro de série:</ion-label>
-        <ion-input [(ngModel)]="tag.serial_num"></ion-input>
-      </ion-col>
-    </ion-row>
-    <ion-row align-items-center *ngIf="tag.chip_id">
-      <ion-col>
-        <ion-label>Jour de controle:</ion-label>
+        <ion-input  required [(ngModel)]="tag.serial_num"></ion-input>
+    </ion-item>
+    <ion-item align-items-center *ngIf="tag.chip_id">
+      <!-- <ion-col> -->
+        <ion-label>Jour de contrôle:</ion-label>
         <ion-select [(ngModel)]="tag.check_day_id" okText="OK" cancelText="Annuler">
           <ion-select-option [value]="1">Lundi</ion-select-option>
           <ion-select-option [value]="2">Mardi</ion-select-option>
@@ -49,50 +54,52 @@
           <ion-select-option [value]="6">Samedi</ion-select-option>
           <ion-select-option [value]="0">Dimanche</ion-select-option>
         </ion-select>
-      </ion-col>
-    </ion-row>
-    <ion-row align-items-center *ngIf="tag.chip_id">
-      <ion-col>
+      <!-- </ion-col> -->
+    </ion-item>
+    <ion-item align-items-center *ngIf="tag.chip_id">
         <ion-label>Périodicité (mois):</ion-label>
-        <ion-input [(ngModel)]="tag.month_periodicity" type="number"></ion-input>
-      </ion-col>
-    </ion-row>
-    <ion-row align-items-center *ngIf="tag.chip_id">
-      <ion-col>
-        <ion-label>Secteur:</ion-label>
-        <ion-input [(ngModel)]="tag.sector"></ion-input>
-      </ion-col>
-    </ion-row>
-    <ion-row align-items-center *ngIf="tag.chip_id">
-      <ion-col>
-        <ion-label>Zone:</ion-label>
-        <ion-input [(ngModel)]="tag.zone"></ion-input>
-      </ion-col>
-    </ion-row>
-    <ion-row align-items-center *ngIf="tag.chip_id">
-      <ion-col>
+        <ion-input  required  [(ngModel)]="tag.month_periodicity" type="number"></ion-input>
+    </ion-item>
+    <ion-item align-items-center *ngIf="tag.chip_id">
+      <!-- <ion-col> -->
+        <ion-label>Dernière cértification:</ion-label>
+        <!-- <ion-input [(ngModel)]="tag.last_certification"></ion-input> -->
+        <ion-datetime required  [(ngModel)]="tag.last_certification"
+          display-format="D, MMMM YYYY"
+          picker-format="DD MM YYYY"
+        ></ion-datetime>
+      <!-- </ion-col> -->
+    </ion-item>
+    <ion-item align-items-center *ngIf="tag.chip_id">
+      <!-- <ion-col> -->
+        <ion-label>Famille d'équipement:</ion-label>
+        <ion-select [(ngModel)]="tag.famille" okText="OK" cancelText="Annuler">
+          <ion-select-option [value]="elingue">elingue</ion-select-option>
+          <ion-select-option [value]="palan">palan</ion-select-option>
+        </ion-select>
+      <!-- </ion-col> -->
+    </ion-item>
+    <ion-item align-items-center *ngIf="tag.chip_id">
         <ion-label>Nombre de brins:</ion-label>
-        <ion-input [(ngModel)]="tag.part_number"></ion-input>
-      </ion-col>
-    </ion-row>
-    <ion-row align-items-center *ngIf="tag.chip_id">
-      <ion-col>
-        <ion-label>Charge utile:</ion-label>
-        <ion-input [(ngModel)]="tag.cmu_kg"></ion-input>
-      </ion-col>
-    </ion-row>
-    <ion-row align-items-center *ngIf="tag.chip_id">
-      <ion-col>
+        <ion-input type="number" [(ngModel)]="tag.part_number"></ion-input>
+    </ion-item>
+    <ion-item align-items-center *ngIf="tag.chip_id">
+        <ion-label>Charge utile max.:</ion-label>
+        <ion-input type="number" required  [(ngModel)]="tag.cmu_kg"></ion-input>
+    </ion-item>
+    <ion-item align-items-center *ngIf="tag.chip_id">
         <ion-label>Longueur:</ion-label>
-        <ion-input [(ngModel)]="tag.length"></ion-input>
-      </ion-col>
-    </ion-row>
-    <ion-row align-items-center *ngIf="tag.chip_id">
-      <ion-col>
+        <ion-input type="number" required  [(ngModel)]="tag.length"></ion-input>
+    </ion-item>
+    <ion-item align-items-center *ngIf="tag.chip_id">
+      <!-- <ion-col> -->
         <ion-label>Commentaire:</ion-label>
         <ion-textarea [(ngModel)]="tag.comment"></ion-textarea>
-      </ion-col>
-    </ion-row>
+      <!-- </ion-col> -->
+    </ion-item>
+  </ion-list>
+
+  <ion-grid>
     <ion-row *ngIf="tag.chip_id">
       <ion-col width-100 style="text-align: center">
         <ion-button color="medium" (click)="saveClicked()">Enregistrer</ion-button>

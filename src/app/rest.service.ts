@@ -15,16 +15,18 @@ export class Tag {
   comment: any;
   week_periodicity: number;
   month_periodicity: number;
-  last_certifiction: string;
-  sector: string;
-  zone: string;
+  last_certification: string;
+  // sector: string;
+  // zone: string;
   check_day_id: number;
   parts_number: number;
   cmu_kg: number;
   length: number;
-  status: number;
-  created_at: string;
-  updated_at: string
+  // status: number;
+  // created_at: string;
+  // updated_at: string
+  human_id: string;
+  famille: string;
 }
 
 @Injectable({
